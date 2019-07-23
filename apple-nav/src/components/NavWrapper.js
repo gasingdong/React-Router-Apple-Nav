@@ -27,18 +27,14 @@ function NavWrapper() {
             <StyledNav>
                 <StyledList>
                     <li><Link to="/"><img alt="apple logo" src="https://www.apple.com/ac/globalnav/4/en_US/images/globalnav/apple/image_large.svg"></img></Link></li>
-                    <Nav data={navData.mac}></Nav>
-                    <li>iPad</li>
-                    <li>iPhone</li>
-                    <li>Watch</li>
-                    <li>TV</li>
-                    <li>Music</li>
-                    <li>Support</li>
+                    {
+                        navData.map(el => <Nav key={el.path} data={el} />)
+                    }
                     <li><img alt="search" src="https://www.apple.com/ac/globalnav/4/en_US/images/globalnav/search/image_large.svg"></img></li>
                     <li><img alt="bag" src="https://www.apple.com/ac/globalnav/4/en_US/images/globalnav/bag/image_large.svg"></img></li>
                 </StyledList>
             </StyledNav>
-            <Route path="/:category" render={props => <SubNav parent={props.match.params.category} data={navData} />} />
+            <Route path="/:category" render={props => <SubNav data={navData.find(el => el.path === props.match.params.category)} />} />
         </header>
     );
 }

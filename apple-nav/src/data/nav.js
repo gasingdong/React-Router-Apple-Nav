@@ -1,5 +1,5 @@
-const navData = {
-    mac: {
+const navData = [
+    {
         name: "Mac",
         path: "mac",
         subnav: [
@@ -55,6 +55,6 @@ const navData = {
             }
         ]
     },
-};
+];
 
 export default navData;
