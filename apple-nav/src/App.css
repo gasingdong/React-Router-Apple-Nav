@@ -1,1 +1,12 @@
+.nav-header {
+  font-size: 14px;
+  line-height: 3.14286;
+  font-weight: 400;
+  letter-spacing: -.01em;
+}
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
