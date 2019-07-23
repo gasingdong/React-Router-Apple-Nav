@@ -280,6 +280,10 @@ const navData = [
             },
         ],
     },
+    {
+        name: "Support",
+        path: "support",
+    }
 ];
 
 export default navData;

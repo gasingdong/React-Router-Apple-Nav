@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Nav from './Nav';
 import SubNav from './SubNav';
@@ -22,16 +22,24 @@ function NavWrapper() {
         max-width: 1000px;
     `;
 
+    const StyledImg = styled.img`
+        &:hover {
+            opacity: 0.65;
+        };
+
+        transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    `;
+
     return (
         <header>
             <StyledNav>
                 <StyledList>
-                    <li><Link to="/"><img alt="apple logo" src="https://www.apple.com/ac/globalnav/4/en_US/images/globalnav/apple/image_large.svg"></img></Link></li>
+                    <li><Link to="/"><StyledImg alt="apple logo" src="https://www.apple.com/ac/globalnav/4/en_US/images/globalnav/apple/image_large.svg" /></Link></li>
                     {
                         navData.map(el => <Nav key={el.path} data={el} />)
                     }
-                    <li><img alt="search" src="https://www.apple.com/ac/globalnav/4/en_US/images/globalnav/search/image_large.svg"></img></li>
-                    <li><img alt="bag" src="https://www.apple.com/ac/globalnav/4/en_US/images/globalnav/bag/image_large.svg"></img></li>
+                    <li><StyledImg alt="search" src="https://www.apple.com/ac/globalnav/4/en_US/images/globalnav/search/image_large.svg" /></li>
+                    <li><StyledImg alt="bag" src="https://www.apple.com/ac/globalnav/4/en_US/images/globalnav/bag/image_large.svg" /></li>
                 </StyledList>
             </StyledNav>
             <Route path="/:category" render={props => <SubNav data={navData.find(el => el.path === props.match.params.category)} />} />
