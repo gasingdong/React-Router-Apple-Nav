@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, NavLink, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Nav from './Nav';
 import SubNav from './SubNav';
@@ -42,7 +42,11 @@ function NavWrapper() {
                     <li><StyledImg alt="bag" src="https://www.apple.com/ac/globalnav/4/en_US/images/globalnav/bag/image_large.svg" /></li>
                 </StyledList>
             </StyledNav>
-            <Route path="/:category" render={props => <SubNav data={navData.find(el => el.path === props.match.params.category)} />} />
+            <Route path="/:category" render={props => {
+                const subnav = navData.find(el => el.path === props.match.params.category).subnav;
+                return subnav ? <SubNav data={subnav}/> : <></>
+                }
+            } />
         </header>
     );
 }
