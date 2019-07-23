@@ -17,11 +17,21 @@ function SubNav(props) {
         width: 100%;
         text-align: center;
         padding: 12px 0;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
     `;
 
     const StyledSubNav = styled.div`
         display: flex;
         flex-flow: column;
+        margin: 0 -0.11765em;
+        padding: 0 20px;
+    `;
+
+    const StyledImg = styled.img`
+        margin-top: 5px;
+        margin-bottom: -5px;
     `;
 
     return (
@@ -31,7 +41,7 @@ function SubNav(props) {
                     return (
                         <StyledNavLink key={subnavitem.path} to={`/${subnavitem.path}`}>
                             <StyledSubNav>
-                                <img alt={subnavitem.path} src={subnavitem.logo} />
+                                <StyledImg height="54px" alt={subnavitem.path} src={subnavitem.logo} />
                                 {subnavitem.name}
                             </StyledSubNav>
                         </StyledNavLink>
