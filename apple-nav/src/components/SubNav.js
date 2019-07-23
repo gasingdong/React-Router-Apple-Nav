@@ -7,7 +7,8 @@ function SubNav(props) {
 
     const StyledNavLink = styled(NavLink)`
         text-decoration: none;
-        color: #fff;
+        color: #000;
+        font-size: 11px;
     `;
 
     const StyledDiv = styled.div`
@@ -18,10 +19,23 @@ function SubNav(props) {
         padding: 12px 0;
     `;
 
+    const StyledSubNav = styled.div`
+        display: flex;
+        flex-flow: column;
+    `;
+
     return (
         <StyledDiv>
             {
-                data.map(subnavitem => <StyledNavLink key={subnavitem.path} to={`/${subnavitem.path}`}>{subnavitem.name}</StyledNavLink>)
+                data.map(subnavitem => {
+                    return (
+                        <StyledNavLink key={subnavitem.path} to={`/${subnavitem.path}`}>
+                            <StyledSubNav>
+                                <img alt={subnavitem.path} src={subnavitem.logo} />
+                                {subnavitem.name}
+                            </StyledSubNav>
+                        </StyledNavLink>
+                    )})
             }
         </StyledDiv>
     );
