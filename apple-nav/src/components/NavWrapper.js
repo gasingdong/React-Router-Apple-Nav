@@ -43,8 +43,8 @@ function NavWrapper() {
                 </StyledList>
             </StyledNav>
             <Route path="/:category" render={props => {
-                const subnav = navData.find(el => el.path === props.match.params.category).subnav;
-                return subnav ? <SubNav data={subnav}/> : <></>
+                const data = navData.find(el => el.path === props.match.params.category);
+                return data && data.subnav ? <SubNav data={data}/> : <></>
                 }
             } />
         </header>
