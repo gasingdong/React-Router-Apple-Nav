@@ -38,7 +38,7 @@ function NavWrapper() {
                     <li><img alt="bag" src="https://www.apple.com/ac/globalnav/4/en_US/images/globalnav/bag/image_large.svg"></img></li>
                 </StyledList>
             </StyledNav>
-            <Route path="/:category" render={props => <SubNav data={navData[props.match.params.category].subnav} />} />
+            <Route path="/:category" render={props => <SubNav parent={props.match.params.category} data={navData} />} />
         </header>
     );
 }

@@ -3,7 +3,8 @@ import { Route, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 function SubNav(props) {
-    const data = props.data;
+    const { data, parent } = props;
+    const subnav = data[parent].subnav;
 
     const StyledNavLink = styled(NavLink)`
         text-decoration: none;
@@ -37,14 +38,14 @@ function SubNav(props) {
     return (
         <StyledDiv>
             {
-                data.map(subnavitem => {
+                subnav.map(subnavitem => {
                     return (
-                        <StyledNavLink key={subnavitem.path} to={`/${subnavitem.path}`}>
+                        <StyledNavLink key={subnavitem.path} to={`/${parent}/${subnavitem.path}`}>
                             <StyledSubNav>
                                 <StyledImg height="54px" alt={subnavitem.path} src={subnavitem.logo} />
                                 {subnavitem.name}
                             </StyledSubNav>
-                        </StyledNavLink>    
+                        </StyledNavLink>
                     )})
             }
         </StyledDiv>
