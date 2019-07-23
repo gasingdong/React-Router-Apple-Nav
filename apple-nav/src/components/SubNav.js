@@ -44,7 +44,7 @@ function SubNav(props) {
                                 <StyledImg height="54px" alt={subnavitem.path} src={subnavitem.logo} />
                                 {subnavitem.name}
                             </StyledSubNav>
-                        </StyledNavLink>
+                        </StyledNavLink>    
                     )})
             }
         </StyledDiv>
